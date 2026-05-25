@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://screens-together.luopeike.com/sitemap.xml
