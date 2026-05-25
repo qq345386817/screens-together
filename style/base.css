@@ -73,6 +73,7 @@ a {
 .button {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   min-height: 40px;
   padding: 0 14px;
   border: 1px solid var(--border);
@@ -148,6 +149,7 @@ h1 {
   width: 22px;
   height: 22px;
   flex: 0 0 auto;
+  margin-right: 2px;
 }
 
 .button.compact {
