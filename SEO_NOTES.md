@@ -29,3 +29,15 @@ The 404 URL was `/cdn-cgi/l/email-protection`, a Cloudflare-managed email-obfusc
 ## Follow-Up
 
 Successful deployment, a successful sitemap submission, a positive live URL test, and an accepted indexing request are different from actual indexing. Record the observed GSC results rather than claiming all excluded pages have been indexed. Monitor canonical homepage/help URLs after Google recrawls; do not repeatedly request the same URL, submit duplicate aliases, or remove valid canonical pages to clear a report.
+
+## 2026-10-13 Verification
+
+The independent website repository changes were committed and pushed in logical batches: brand icons (`54c635d`), clean URLs and multilingual guidance (`e0c7d7b`), real unknown-path 404 responses (`d044d6d`), and deployed-link validation after Cloudflare consumes email guards (`b3f4df7`). Cloudflare Pages reported successful deployment for the last code revision. The App repository was not committed or changed by this website task.
+
+`npm test` and `npm run test:live` passed. All 32 production canonical pages returned HTTP 200 without redirects and matched their canonical/language annotations. All 10 English aliases permanently redirected to the intended root pages. The deployed sitemap matched the 32 source entries. `llms.txt` returned `text/plain` with `X-Robots-Tag: noindex`, and unknown URLs returned HTTP 404 rather than the homepage. The production public mailto links survived without `/cdn-cgi/l/email-protection` replacements. Repeated generation was idempotent.
+
+Chrome checks covered the default desktop viewport and 390 x 844 mobile viewport. Homepage, questions link, and English/Chinese language switching worked with clean URLs; images loaded, there was no horizontal overflow, and the relevant console checks returned no warnings or errors. Temporary viewport overrides were reset.
+
+GSC live homepage testing at 10:59 Asia/Shanghai reported crawl success, crawling/indexing allowed, and the corrected canonical `https://screens-together.luopeike.com/`. One homepage indexing request was accepted. This is not evidence that it has already been indexed.
+
+The sitemap submission was accepted, but its report still showed `Could not fetch`, unknown type, and 0 discovered pages. It was retried once after deployment and live checks; repeated submissions were not continued. GSC's separate live test of `sitemap.xml` at 11:02:44 reported successful crawling. Public normal and Googlebot-user-agent HTTP checks returned 200 with `application/xml`, and HTML/XML parser validation passed. The mismatch between the sitemap report and successful live fetch remains unresolved; processing delay is a possibility, not a confirmed cause. Recheck this report after Google processes the submission, and investigate host/CDN logs if it persists. Do not report the sitemap as successfully read or all 47 excluded URLs as fixed/indexed.
