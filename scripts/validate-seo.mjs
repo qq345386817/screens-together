@@ -76,6 +76,7 @@ for (const [from, to, code] of redirects) {
   assert.notEqual(from, to);
 }
 assert.ok(read('robots.txt').includes('Disallow: /cdn-cgi/l/email-protection'));
+assert.ok(attr(find(document('404.html'), 'meta', 'name', 'robots'), 'content').includes('noindex'));
 assert.ok(read('_headers').includes('X-Robots-Tag: noindex'));
 assert.equal((read('llms.txt').match(/https:\/\/screens-together\.luopeike\.com/g) || []).length, 32);
 console.log('PASS: 36 source pages, 32 canonical URLs, reciprocal language groups, valid structured data, links, email guards, and English redirects.');
