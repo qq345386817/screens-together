@@ -13,7 +13,7 @@ assert.equal(urls.length, 32);
 assert.deepEqual([...urls.map(item => item.loc)].sort(), [...expected].sort());
 const routes = new Set(expected.map(url => new URL(url).pathname));
 const isPage = pathname => routes.has(pathname);
-function check(doc, url, alias = false) {
+function check(doc, url, alias = false, live = false) {
   const nodes = walk(doc);
   const canonicals = nodes.filter(node => node.tagName === 'link' && attr(node, 'rel') === 'canonical');
   assert.equal(canonicals.length, 1, url);
@@ -47,7 +47,7 @@ function check(doc, url, alias = false) {
       assert.ok(!link.pathname.startsWith('/cdn-cgi/'), `${url}: Cloudflare email URL`);
       assert.ok(isPage(link.pathname) || fs.existsSync(path.join(root, link.pathname)), `${url}: missing ${value}`);
     }
-    if (node.tagName === 'a' && attr(node, 'href')?.startsWith('mailto:')) {
+    if (!live && node.tagName === 'a' && attr(node, 'href')?.startsWith('mailto:')) {
       const siblings = node.parentNode.childNodes;
       const index = siblings.indexOf(node);
       assert.equal(siblings[index - 1].data, 'email_off');
@@ -87,7 +87,8 @@ if (process.argv.includes('--live')) {
     const response = await fetch(url, { redirect: 'manual', signal: controller() });
     assert.equal(response.status, 200, `${url}: must return 200 without redirects`);
     assert.ok(response.headers.get('content-type').includes('text/html'));
-    check(parse(await response.text()), url);
+    // Cloudflare consumes email_off comments; verify the surviving links, not comments.
+    check(parse(await response.text()), url, false, true);
     console.log(`LIVE 200: ${new URL(url).pathname}`);
   }
   for (const [from, to] of redirects) {
