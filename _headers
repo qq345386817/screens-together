@@ -1,0 +1,16 @@
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Robots-Tag: noindex
+
+/content/*
+  X-Robots-Tag: noindex
+/scripts/*
+  X-Robots-Tag: noindex
+/README.md
+  X-Robots-Tag: noindex
+/SEO_NOTES.md
+  X-Robots-Tag: noindex
+/package.json
+  X-Robots-Tag: noindex
+/package-lock.json
+  X-Robots-Tag: noindex

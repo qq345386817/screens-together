@@ -1,0 +1,52 @@
+# ScreensTogether
+
+> A local multi-screen display app for scrolling text and user-selected video on iPhone, iPad, native Mac, and Apple TV.
+
+## Product facts
+
+- iPhone/iPad can host or display; the host participates as a screen.
+- A native Mac controller and its joined Display Node windows have separate roles; the controller is not a display tile.
+- Apple TV is a receiver and needs a nearby host.
+- Local rooms need no account or cloud service. Allow local network discovery.
+- This is selected-content tiling, not AirPlay, whole-desktop mirroring, or protected streaming playback.
+- Shared-timeline coordination is not guaranteed hardware frame lock. Test the actual arrangement before an event.
+- Store availability is determined by the App Store listing, not this file.
+
+## Official pages
+
+- [/](https://screens-together.luopeike.com/): Product overview.
+- [/help](https://screens-together.luopeike.com/help): Setup, platform roles, limits, and troubleshooting.
+- [/support](https://screens-together.luopeike.com/support): Contact support.
+- [/privacy-policy](https://screens-together.luopeike.com/privacy-policy): Privacy policy.
+- [/zh-Hans/](https://screens-together.luopeike.com/zh-Hans/): Product overview.
+- [/zh-Hans/help](https://screens-together.luopeike.com/zh-Hans/help): Setup, platform roles, limits, and troubleshooting.
+- [/zh-Hans/support](https://screens-together.luopeike.com/zh-Hans/support): Contact support.
+- [/zh-Hans/privacy-policy](https://screens-together.luopeike.com/zh-Hans/privacy-policy): Privacy policy.
+- [/zh-Hant/](https://screens-together.luopeike.com/zh-Hant/): Product overview.
+- [/zh-Hant/help](https://screens-together.luopeike.com/zh-Hant/help): Setup, platform roles, limits, and troubleshooting.
+- [/zh-Hant/support](https://screens-together.luopeike.com/zh-Hant/support): Contact support.
+- [/zh-Hant/privacy-policy](https://screens-together.luopeike.com/zh-Hant/privacy-policy): Privacy policy.
+- [/es-ES/](https://screens-together.luopeike.com/es-ES/): Product overview.
+- [/es-ES/help](https://screens-together.luopeike.com/es-ES/help): Setup, platform roles, limits, and troubleshooting.
+- [/es-ES/support](https://screens-together.luopeike.com/es-ES/support): Contact support.
+- [/es-ES/privacy-policy](https://screens-together.luopeike.com/es-ES/privacy-policy): Privacy policy.
+- [/fr-FR/](https://screens-together.luopeike.com/fr-FR/): Product overview.
+- [/fr-FR/help](https://screens-together.luopeike.com/fr-FR/help): Setup, platform roles, limits, and troubleshooting.
+- [/fr-FR/support](https://screens-together.luopeike.com/fr-FR/support): Contact support.
+- [/fr-FR/privacy-policy](https://screens-together.luopeike.com/fr-FR/privacy-policy): Privacy policy.
+- [/de-DE/](https://screens-together.luopeike.com/de-DE/): Product overview.
+- [/de-DE/help](https://screens-together.luopeike.com/de-DE/help): Setup, platform roles, limits, and troubleshooting.
+- [/de-DE/support](https://screens-together.luopeike.com/de-DE/support): Contact support.
+- [/de-DE/privacy-policy](https://screens-together.luopeike.com/de-DE/privacy-policy): Privacy policy.
+- [/ja/](https://screens-together.luopeike.com/ja/): Product overview.
+- [/ja/help](https://screens-together.luopeike.com/ja/help): Setup, platform roles, limits, and troubleshooting.
+- [/ja/support](https://screens-together.luopeike.com/ja/support): Contact support.
+- [/ja/privacy-policy](https://screens-together.luopeike.com/ja/privacy-policy): Privacy policy.
+- [/ko/](https://screens-together.luopeike.com/ko/): Product overview.
+- [/ko/help](https://screens-together.luopeike.com/ko/help): Setup, platform roles, limits, and troubleshooting.
+- [/ko/support](https://screens-together.luopeike.com/ko/support): Contact support.
+- [/ko/privacy-policy](https://screens-together.luopeike.com/ko/privacy-policy): Privacy policy.
+
+## Optional
+
+- [App Store listing](https://apps.apple.com/app/id6673916351): Current store availability.

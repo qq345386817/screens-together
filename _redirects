@@ -1,0 +1,11 @@
+# Consolidate the duplicate English paths; legacy links remain supported.
+/en-US / 301
+/en-US/ / 301
+/en-US/index / 301
+/en-US/index.html / 301
+/en-US/help.html /help 301
+/en-US/help /help 301
+/en-US/support.html /support 301
+/en-US/support /support 301
+/en-US/privacy-policy.html /privacy-policy 301
+/en-US/privacy-policy /privacy-policy 301
