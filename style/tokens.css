@@ -1,0 +1,22 @@
+/* Screens Together: generated delivery copy of Design/WebsiteSystem/tokens.json. */
+:root {
+  --paper: #ffffff;
+  --surface: #f4fcfd;
+  --ink: #143b4d;
+  --muted: #48616c;
+  --border: #c9d9dc;
+  --brand: #087f8c;
+  --brand-strong: #066673;
+  --aqua: #27d3c6;
+  --warm: #ffc75a;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-20: 80px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
