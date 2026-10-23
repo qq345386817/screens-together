@@ -1,0 +1,354 @@
+{
+  "en": {
+    "tagline": "Different screens. One shared picture.",
+    "skip": "Skip to content",
+    "workflow": "From nearby screens to a shared canvas.",
+    "steps": [
+      [
+        "Prepare your content",
+        "Choose scrolling text or a local video. Set the screen count and layout before creating a room."
+      ],
+      [
+        "Connect your screens",
+        "Join the nearby room, approve displays, then assign each screen its position and orientation."
+      ],
+      [
+        "Play together",
+        "Calibrate gaps and crop offsets. Wait for video transfer to finish, then start playback."
+      ]
+    ],
+    "facts": [
+      "Scrolling text & local video",
+      "Nearby, account-free rooms",
+      "Mixed sizes & orientations"
+    ],
+    "illustration": "Conceptual screen arrangement, not a device-test photograph.",
+    "macHeading": "One Mac. More than one display.",
+    "macIntro": "Keep a controller in one window and join the room from other display windows. Assign a different part of the canvas to each, without moving a device.",
+    "screenshot": "Actual macOS controller interface",
+    "roles": [
+      "Host or display. The iPhone or iPad host also counts as one screen.",
+      "A separate controller, with each joined display window taking one screen position.",
+      "A display receiver. Join a room hosted on iPhone, iPad, or Mac."
+    ],
+    "roleLinks": [
+      "iPhone / iPad setup",
+      "Mac multi-window setup",
+      "Apple TV setup"
+    ],
+    "faqHeading": "A few things before you start.",
+    "closing": "Your screens already have something in common.",
+    "closingText": "Give them one picture to share.",
+    "free": "Free app. Check the App Store listing for current availability.",
+    "intro": "Turn nearby iPhone, iPad, Mac and Apple TV displays into a shared canvas for scrolling text or local video.",
+    "setup": "How it works"
+  },
+  "zh-Hans": {
+    "tagline": "各有屏幕，共享画面。",
+    "skip": "跳到正文",
+    "workflow": "从几块屏幕，到一块画布。",
+    "steps": [
+      [
+        "准备内容",
+        "选择滚动文字或本地视频，在创建房间前设置屏幕数量和布局。"
+      ],
+      [
+        "连接屏幕",
+        "加入附近的房间、批准显示设备，再分配每块屏幕的位置和横竖方向。"
+      ],
+      [
+        "一起播放",
+        "校准间距和裁切偏移，等待视频传输完成后，统一开始播放。"
+      ]
+    ],
+    "facts": [
+      "滚动文字与本地视频",
+      "附近连接，无需账号",
+      "混合尺寸与横竖屏"
+    ],
+    "illustration": "跨屏布局示意图，非真实设备测试照片。",
+    "macHeading": "一台 Mac，也能组成多屏画布。",
+    "macIntro": "一个窗口做主控，其他显示窗口加入房间。为每个窗口分配画面区域，无需挪动设备，也能调整显示内容。",
+    "screenshot": "真实 macOS 主控界面",
+    "roles": [
+      "可以做主控或显示端；iPhone 或 iPad 主控本身也算一块屏幕。",
+      "主控与显示窗口分开；每个加入房间的显示窗口占一个屏幕位置。",
+      "作为显示接收端，加入 iPhone、iPad 或 Mac 创建的房间。"
+    ],
+    "roleLinks": [
+      "iPhone / iPad 设置方法",
+      "Mac 多窗口设置方法",
+      "Apple TV 设置方法"
+    ],
+    "faqHeading": "开始之前，了解这些。",
+    "closing": "让已有的屏幕，一起派上用场。",
+    "closingText": "从一段文字，或一段视频开始。",
+    "free": "App 免费。实际上架情况以 App Store 页面为准。",
+    "intro": "将附近的 iPhone、iPad、Mac 和 Apple TV 组合起来，跨屏展示滚动文字或本地视频。",
+    "setup": "设置方法"
+  },
+  "zh-Hant": {
+    "tagline": "各有螢幕，共享畫面。",
+    "skip": "跳到正文",
+    "workflow": "從幾塊螢幕，到一塊畫布。",
+    "steps": [
+      [
+        "準備內容",
+        "選擇捲動文字或本機影片，在建立房間前設定螢幕數量和版面。"
+      ],
+      [
+        "連接螢幕",
+        "加入附近的房間、核准顯示裝置，再分配各螢幕的位置和方向。"
+      ],
+      [
+        "一起播放",
+        "校準間距和裁切偏移，等待影片傳輸完成後，統一開始播放。"
+      ]
+    ],
+    "facts": [
+      "捲動文字與本機影片",
+      "附近連接，無需帳號",
+      "混合尺寸與螢幕方向"
+    ],
+    "illustration": "跨螢幕版面示意圖，非真實裝置測試照片。",
+    "macHeading": "一台 Mac，也能組成多螢幕畫布。",
+    "macIntro": "一個視窗做主控，其他顯示視窗加入房間。為每個視窗分配畫面區域，無需移動裝置，也能調整顯示內容。",
+    "screenshot": "真實 macOS 主控介面",
+    "roles": [
+      "可作主控或顯示端；iPhone 或 iPad 主控本身也算一塊螢幕。",
+      "主控與顯示視窗分開；每個加入房間的顯示視窗佔一個螢幕位置。",
+      "作為顯示接收端，加入 iPhone、iPad 或 Mac 建立的房間。"
+    ],
+    "roleLinks": [
+      "iPhone / iPad 設定方法",
+      "Mac 多視窗設定方法",
+      "Apple TV 設定方法"
+    ],
+    "faqHeading": "開始之前，了解這些。",
+    "closing": "讓已有的螢幕，一起派上用場。",
+    "closingText": "從一段文字，或一段影片開始。",
+    "free": "App 免費。實際上架情況以 App Store 頁面為準。",
+    "intro": "將附近的 iPhone、iPad、Mac 和 Apple TV 組合起來，跨螢幕展示捲動文字或本機影片。",
+    "setup": "設定方法"
+  },
+  "es-ES": {
+    "tagline": "Distintas pantallas. Una imagen compartida.",
+    "skip": "Ir al contenido",
+    "workflow": "De varias pantallas a un lienzo compartido.",
+    "steps": [
+      [
+        "Prepara el contenido",
+        "Elige texto en movimiento o un vídeo local. Configura las pantallas y la distribución antes de crear la sala."
+      ],
+      [
+        "Conecta las pantallas",
+        "Únete a la sala cercana, aprueba las pantallas y asigna sus posiciones y orientaciones."
+      ],
+      [
+        "Reproduce en conjunto",
+        "Calibra los espacios y los recortes. Espera a que se transfiera el vídeo antes de reproducir."
+      ]
+    ],
+    "facts": [
+      "Texto y vídeo local",
+      "Salas cercanas, sin cuenta",
+      "Tamaños y orientaciones mixtos"
+    ],
+    "illustration": "Distribución conceptual de pantallas, no una fotografía de una prueba real.",
+    "macHeading": "Un Mac. Más de una pantalla.",
+    "macIntro": "Controla la sala en una ventana y únete desde otras ventanas de visualización. Asigna una parte del lienzo a cada una sin mover dispositivos.",
+    "screenshot": "Interfaz real del controlador de macOS",
+    "roles": [
+      "Controlador o pantalla. El iPhone o iPad anfitrión también cuenta como una pantalla.",
+      "Controlador independiente. Cada ventana de visualización unida ocupa una posición.",
+      "Receptor de pantalla. Se une a una sala creada en iPhone, iPad o Mac."
+    ],
+    "roleLinks": [
+      "Configurar iPhone / iPad",
+      "Configurar ventanas del Mac",
+      "Configurar Apple TV"
+    ],
+    "faqHeading": "Antes de empezar.",
+    "closing": "Dale un uso compartido a tus pantallas.",
+    "closingText": "Empieza con un mensaje o un vídeo.",
+    "free": "App gratuita. Consulta la disponibilidad actual en el App Store.",
+    "intro": "Combina iPhone, iPad, Mac y Apple TV cercanos para mostrar texto en movimiento o vídeo local en varias pantallas.",
+    "setup": "Cómo funciona"
+  },
+  "fr-FR": {
+    "tagline": "Des écrans différents. Une image partagée.",
+    "skip": "Aller au contenu",
+    "workflow": "De plusieurs écrans à une toile commune.",
+    "steps": [
+      [
+        "Préparez le contenu",
+        "Choisissez du texte défilant ou une vidéo locale. Définissez les écrans et la disposition avant de créer le salon."
+      ],
+      [
+        "Connectez les écrans",
+        "Rejoignez le salon à proximité, approuvez les écrans, puis attribuez les positions et orientations."
+      ],
+      [
+        "Lancez la lecture",
+        "Calibrez les espaces et le recadrage. Attendez la fin du transfert vidéo avant de lancer la lecture."
+      ]
+    ],
+    "facts": [
+      "Texte défilant et vidéo locale",
+      "Salons à proximité, sans compte",
+      "Tailles et orientations variées"
+    ],
+    "illustration": "Disposition conceptuelle des écrans, pas une photo de test réel.",
+    "macHeading": "Un Mac. Plusieurs fenêtres d’affichage.",
+    "macIntro": "Gardez le contrôleur dans une fenêtre et rejoignez le salon depuis d’autres fenêtres d’affichage. Attribuez une partie de la toile à chacune sans déplacer d’appareil.",
+    "screenshot": "Interface réelle du contrôleur macOS",
+    "roles": [
+      "Hôte ou écran. L’iPhone ou l’iPad hôte compte aussi comme un écran.",
+      "Un contrôleur séparé. Chaque fenêtre d’affichage connectée occupe une position.",
+      "Un récepteur d’affichage. Rejoint un salon créé sur iPhone, iPad ou Mac."
+    ],
+    "roleLinks": [
+      "Configurer iPhone / iPad",
+      "Configurer les fenêtres Mac",
+      "Configurer Apple TV"
+    ],
+    "faqHeading": "À savoir avant de commencer.",
+    "closing": "Vos écrans ont une image à partager.",
+    "closingText": "Commencez par un message ou une vidéo.",
+    "free": "App gratuite. Consultez sa disponibilité actuelle sur l’App Store.",
+    "intro": "Réunissez les écrans de vos iPhone, iPad, Mac et Apple TV pour afficher du texte défilant ou une vidéo locale.",
+    "setup": "Mode d’emploi"
+  },
+  "de-DE": {
+    "tagline": "Verschiedene Bildschirme. Ein gemeinsames Bild.",
+    "skip": "Zum Inhalt",
+    "workflow": "Aus einzelnen Bildschirmen wird eine Leinwand.",
+    "steps": [
+      [
+        "Inhalt vorbereiten",
+        "Wähle Lauftext oder ein lokales Video. Lege vor dem Erstellen des Raums die Bildschirmzahl und das Layout fest."
+      ],
+      [
+        "Bildschirme verbinden",
+        "Tritt dem Raum in der Nähe bei, bestätige die Displays und weise Positionen und Ausrichtungen zu."
+      ],
+      [
+        "Gemeinsam abspielen",
+        "Kalibriere Abstände und Bildausschnitte. Warte vor der Wiedergabe, bis das Video übertragen ist."
+      ]
+    ],
+    "facts": [
+      "Lauftext und lokale Videos",
+      "Lokale Räume, ohne Konto",
+      "Gemischte Größen und Ausrichtungen"
+    ],
+    "illustration": "Konzeptionelle Bildschirmanordnung, kein Foto eines Gerätetests.",
+    "macHeading": "Ein Mac. Mehrere Anzeigefenster.",
+    "macIntro": "Steuere den Raum in einem Fenster und tritt ihm aus weiteren Anzeigefenstern bei. Weise jedem einen Bildbereich zu, ohne Geräte zu verschieben.",
+    "screenshot": "Tatsächliche macOS-Steuerungsoberfläche",
+    "roles": [
+      "Host oder Display. Das iPhone oder iPad als Host zählt selbst als Bildschirm.",
+      "Separate Steuerung. Jedes verbundene Anzeigefenster belegt eine Bildschirmposition.",
+      "Display-Empfänger. Tritt einem Raum auf iPhone, iPad oder Mac bei."
+    ],
+    "roleLinks": [
+      "iPhone / iPad einrichten",
+      "Mac-Fenster einrichten",
+      "Apple TV einrichten"
+    ],
+    "faqHeading": "Gut zu wissen, bevor du startest.",
+    "closing": "Gib deinen Bildschirmen ein gemeinsames Bild.",
+    "closingText": "Beginne mit einer Nachricht oder einem Video.",
+    "free": "Kostenlose App. Die aktuelle Verfügbarkeit steht im App Store.",
+    "intro": "Verbinde iPhone, iPad, Mac und Apple TV zu einer gemeinsamen Anzeige für Lauftext oder lokale Videos.",
+    "setup": "So geht’s"
+  },
+  "ja": {
+    "tagline": "それぞれの画面に、ひとつの映像を。",
+    "skip": "本文へ移動",
+    "workflow": "いくつかの画面を、ひとつのキャンバスに。",
+    "steps": [
+      [
+        "コンテンツを準備",
+        "スクロール文字またはローカル動画を選び、ルーム作成前に画面数とレイアウトを設定します。"
+      ],
+      [
+        "画面を接続",
+        "近くのルームに参加し、表示端末を承認して、各画面の位置と向きを割り当てます。"
+      ],
+      [
+        "一緒に再生",
+        "間隔と切り抜き位置を調整し、動画転送が完了してから再生を開始します。"
+      ]
+    ],
+    "facts": [
+      "スクロール文字とローカル動画",
+      "近くで接続・アカウント不要",
+      "異なるサイズと縦横の向き"
+    ],
+    "illustration": "画面配置のイメージです。実機テストの写真ではありません。",
+    "macHeading": "1台の Mac で、複数の表示ウインドウ。",
+    "macIntro": "ひとつのウインドウで操作し、ほかの表示ウインドウからルームに参加。端末を動かさずに、それぞれの表示範囲を割り当てられます。",
+    "screenshot": "実際の macOS コントローラ画面",
+    "roles": [
+      "ホストにも表示端末にも。ホストの iPhone や iPad も1画面に数えます。",
+      "操作と表示は別ウインドウ。参加した表示ウインドウごとに1画面を割り当てます。",
+      "表示用の受信端末。iPhone、iPad、Mac のルームに参加します。"
+    ],
+    "roleLinks": [
+      "iPhone / iPad の設定",
+      "Mac の複数ウインドウ設定",
+      "Apple TV の設定"
+    ],
+    "faqHeading": "始める前に知っておきたいこと。",
+    "closing": "手元の画面で、ひとつの映像を。",
+    "closingText": "文字や動画から始めましょう。",
+    "free": "無料の App です。提供状況は App Store で確認してください。",
+    "intro": "近くの iPhone、iPad、Mac、Apple TV を組み合わせて、スクロール文字やローカル動画をひとつの画面のように表示。",
+    "setup": "設定方法"
+  },
+  "ko": {
+    "tagline": "서로 다른 화면, 하나의 장면.",
+    "skip": "본문으로 이동",
+    "workflow": "여러 화면을 하나의 캔버스로.",
+    "steps": [
+      [
+        "콘텐츠 준비",
+        "흐르는 텍스트나 로컬 동영상을 선택하고 방을 만들기 전에 화면 수와 배치를 설정하세요."
+      ],
+      [
+        "화면 연결",
+        "주변 방에 참여하고 디스플레이를 승인한 다음 각 화면의 위치와 방향을 지정하세요."
+      ],
+      [
+        "함께 재생",
+        "간격과 자르기 위치를 보정하고 동영상 전송이 끝나면 함께 재생하세요."
+      ]
+    ],
+    "facts": [
+      "흐르는 텍스트와 로컬 동영상",
+      "주변 연결, 계정 불필요",
+      "다양한 크기와 화면 방향"
+    ],
+    "illustration": "화면 배치 개념 이미지이며 실제 기기 테스트 사진이 아닙니다.",
+    "macHeading": "Mac 한 대, 여러 디스플레이 창.",
+    "macIntro": "한 창에서 제어하고 다른 디스플레이 창에서 방에 참여하세요. 기기를 옮기지 않고 각 창에 캔버스 영역을 지정할 수 있습니다.",
+    "screenshot": "실제 macOS 컨트롤러 화면",
+    "roles": [
+      "호스트 또는 디스플레이로 사용합니다. 호스트 iPhone이나 iPad도 화면 하나로 계산합니다.",
+      "컨트롤러와 디스플레이 창을 분리하며 참여한 디스플레이 창마다 화면 위치 하나를 차지합니다.",
+      "디스플레이 수신 기기입니다. iPhone, iPad 또는 Mac에서 만든 방에 참여합니다."
+    ],
+    "roleLinks": [
+      "iPhone / iPad 설정",
+      "Mac 다중 창 설정",
+      "Apple TV 설정"
+    ],
+    "faqHeading": "시작하기 전에 알아두세요.",
+    "closing": "이미 가진 화면으로 함께 보여주세요.",
+    "closingText": "텍스트나 동영상 하나로 시작하세요.",
+    "free": "무료 앱입니다. 현재 제공 여부는 App Store에서 확인하세요.",
+    "intro": "주변 iPhone, iPad, Mac, Apple TV를 연결해 흐르는 텍스트나 로컬 동영상을 여러 화면에 나누어 보여주세요.",
+    "setup": "설정 방법"
+  }
+}

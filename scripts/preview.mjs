@@ -7,7 +7,7 @@ const routes = new Map([...locales, 'en-US'].flatMap(locale => pages.map(page =>
 // The English canonical paths must serve the root documents, not the legacy aliases.
 for (const page of pages) routes.set(route('en', page), page);
 const redirects = new Map(read('_redirects').split('\n').filter(line => line && !line.startsWith('#')).map(line => line.split(/\s+/).slice(0, 2)));
-const types = { '.html': 'text/html', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain', '.json': 'application/json', '.webmanifest': 'application/manifest+json' };
+const types = { '.html': 'text/html', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.xml': 'application/xml', '.txt': 'text/plain', '.json': 'application/json', '.webmanifest': 'application/manifest+json' };
 const port = Number(process.env.PORT || 4173);
 http.createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);

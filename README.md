@@ -17,6 +17,10 @@ https://screens-together.luopeike.com
 - `sitemap.xml` lists 32 canonical landing, help, support, and privacy URLs, with Git-derived modification dates.
 - `robots.txt` points crawlers to the sitemap.
 - `content/help.json` contains the eight localized setup instructions and questions. Generated HTML is committed and works without JavaScript rendering.
+- `content/home.json` and `scripts/home.mjs` generate the eight localized homepages: product overview, setup, actual macOS interface, platform roles, and native disclosure questions.
+- `style/tokens.css` delivers the shared light-theme palette; `style/base.css` owns responsive layouts and accessible controls. The design-system source and design canvas are in the App workspace at `Design/WebsiteSystem/` and `Design/WebsiteRefresh/`.
+- `scripts/navigation.js` only handles language selection. Core content, navigation, setup links, and disclosure questions do not depend on JavaScript rendering.
+- `images/README.md` records which images are conceptual and which are actual app captures. Screenshots are localized, compressed, and lazy-loaded; the hero has eager priority and explicit dimensions.
 - `llms.txt` is optional agent navigation, not a Google ranking feature. It must stay consistent with the visible pages.
 - `_redirects` and `_headers` are Cloudflare Pages configuration files; upload them alongside the HTML files.
 

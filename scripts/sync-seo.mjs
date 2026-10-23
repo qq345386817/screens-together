@@ -1,10 +1,11 @@
 import { execFileSync, spawnSync } from 'node:child_process';
 import { XMLBuilder } from 'fast-xml-parser';
 import { root, origin, locales, pages, read, write, source, route, canonicalPath, document, walk, attr, setAttr, find, text, setText, escape, insert, serialize } from './site.mjs';
+import { renderHome, enhanceShared } from './home.mjs';
 
 const copy = JSON.parse(read('content/help.json'));
+const homeCopy = JSON.parse(read('content/home.json'));
 const today = new Date().toISOString().slice(0, 10);
-const price = { en: 'Free app. Store availability is shown on the App Store listing.', 'zh-Hans': 'App 免费。实际上架情况以 App Store 页面为准。', 'zh-Hant': 'App 免費。實際上架情況以 App Store 頁面為準。', 'es-ES': 'App gratuita. La disponibilidad figura en el App Store.', 'fr-FR': 'App gratuite. Consultez la disponibilité sur l’App Store.', 'de-DE': 'Kostenlose App. Die Verfügbarkeit steht im App Store.', ja: '無料の App です。提供状況は App Store で確認してください。', ko: '무료 앱입니다. 제공 여부는 App Store에서 확인하세요.' };
 const paragraph = value => `<p>${escape(value)}</p>`;
 const section = (id, title, content) => `<section id="${id}"><h2>${escape(title)}</h2>${content}</section>\n`;
 
@@ -44,6 +45,8 @@ for (const locale of [...locales, 'en-US']) {
         section('mac', words.macTitle, paragraph(words.mac)) +
         section('apple-tv', words.tvTitle, paragraph(words.tv)) +
         section('questions', words.faqTitle, faq), index);
+      panel.childNodes = panel.childNodes.filter(node => attr(node, 'class') !== 'article-toc');
+      insert(panel, `<nav class="article-toc" aria-label="${escape(words.faqTitle)}">${[["setup", words.setupTitle], ["mac", words.macTitle], ["apple-tv", words.tvTitle], ["questions", words.faqTitle]].map(([id, title]) => `<a href="#${id}">${escape(title)}</a>`).join('')}</nav>`, panel.childNodes.indexOf(lead) + 1);
       for (const node of walk(head).filter(node => node.tagName === 'meta' && (attr(node, 'name') === 'description' || attr(node, 'property') === 'og:description'))) setAttr(node, 'content', words.summary);
     }
     if (page === 'support.html') {
@@ -54,11 +57,12 @@ for (const locale of [...locales, 'en-US']) {
       for (const node of walk(head).filter(node => node.tagName === 'meta' && (attr(node, 'name') === 'description' || attr(node, 'property') === 'og:description'))) setAttr(node, 'content', words.supportSummary);
     }
     if (page === 'index.html') {
-      setText(find(doc, 'h1'), 'ScreensTogether');
-      const main = find(doc, 'main');
-      main.childNodes = main.childNodes.filter(node => attr(node, 'id') !== 'platforms');
-      insert(main, `<section class="section" id="platforms"><h2>${escape(words.platformTitle)}</h2>${paragraph(price[language])}<h3>iPhone / iPad</h3>${paragraph(words.steps[1])}<h3>macOS</h3>${paragraph(words.mac)}<h3>Apple TV</h3>${paragraph(words.tv)}<a href="${route(locale, 'help.html')}#questions">${escape(words.faqTitle)}</a></section>\n`, main.childNodes.findIndex(node => node.tagName === 'footer'));
+      renderHome(doc, locale, words, homeCopy[language]);
     }
+    enhanceShared(doc, locale, homeCopy[language]);
+    const titleNode = find(head, 'title');
+    setText(titleNode, text(titleNode).replaceAll('ScreensTogether', 'Screens Together'));
+    for (const node of walk(head).filter(node => node.tagName === 'meta' && ['og:title', 'og:site_name'].includes(attr(node, 'property')))) setAttr(node, 'content', attr(node, 'content').replaceAll('ScreensTogether', 'Screens Together'));
     // Keep public support links crawlable instead of generating Cloudflare 404 URLs.
     for (const link of walk(doc).filter(node => node.tagName === 'a' && attr(node, 'href')?.startsWith('mailto:'))) {
       const parent = link.parentNode;
@@ -75,11 +79,11 @@ for (const locale of [...locales, 'en-US']) {
     const title = text(find(head, 'title'));
     const description = attr(find(head, 'meta', 'name', 'description'), 'content');
     const graph = [
-      { '@type': 'WebSite', '@id': origin + '/#website', name: 'ScreensTogether', alternateName: 'Screens Together', url: origin + '/' },
+      { '@type': 'WebSite', '@id': origin + '/#website', name: 'Screens Together', alternateName: 'ScreensTogether', url: origin + '/' },
       { '@type': 'WebPage', '@id': url + '#webpage', url, name: title, description, inLanguage: language,
         isPartOf: { '@id': origin + '/#website' }, about: { '@id': origin + '/#app' } }
     ];
-    if (page === 'index.html') graph.push({ '@type': 'SoftwareApplication', '@id': origin + '/#app', name: 'ScreensTogether', alternateName: 'Screens Together', applicationCategory: 'MultimediaApplication', operatingSystem: 'iOS, iPadOS, macOS, tvOS', url: origin + '/', description: text(find(doc, 'p', 'class', 'lead')), image: origin + '/favicon/android-chrome-512x512.png', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } });
+    if (page === 'index.html') graph.push({ '@type': 'SoftwareApplication', '@id': origin + '/#app', name: 'Screens Together', alternateName: 'ScreensTogether', applicationCategory: 'MultimediaApplication', operatingSystem: 'iOS, iPadOS, macOS, tvOS', url: origin + '/', description: text(find(doc, 'p', 'class', 'lead')), image: origin + '/favicon/android-chrome-512x512.png', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } });
     if (page !== 'index.html') graph.push({ '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'ScreensTogether', item: origin + route(locale, 'index.html') },
       { '@type': 'ListItem', position: 2, name: text(find(doc, 'h1')), item: url }

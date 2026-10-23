@@ -22,6 +22,12 @@ function check(doc, url, alias = false, live = false) {
   assert.ok(text(find(doc, 'title')).length > 5, url);
   assert.ok(attr(find(doc, 'meta', 'name', 'description'), 'content').length > 30, url);
   assert.equal(nodes.filter(node => node.tagName === 'h1').length, 1, url);
+  assert.ok(nodes.find(node => attr(node, 'id') === 'main-content'), `${url}: skip link target`);
+  assert.equal(attr(find(doc, 'a', 'class', 'skip-link'), 'href'), '#main-content');
+  assert.ok(find(doc, 'script', 'src', '/scripts/navigation.js'));
+  assert.equal(attr(find(doc, 'select'), 'onchange'), undefined);
+  const ids = nodes.map(node => attr(node, 'id')).filter(Boolean);
+  assert.equal(ids.length, new Set(ids).size, `${url}: duplicate IDs`);
   const alternates = nodes.filter(node => node.tagName === 'link' && attr(node, 'hreflang'));
   assert.equal(alternates.length, 10, url);
   const languageMap = { en: 'en', 'en-US': 'en', 'zh-CN': 'zh-Hans', 'zh-TW': 'zh-Hant', 'es-ES': 'es-ES', 'fr-FR': 'fr-FR', 'de-DE': 'de-DE', ja: 'ja', ko: 'ko', 'x-default': 'en' };
@@ -40,12 +46,18 @@ function check(doc, url, alias = false, live = false) {
   for (const node of nodes) {
     for (const field of ['href', 'src', 'value']) {
       const value = attr(node, field);
-      if (!value || value.startsWith('mailto:') || value.startsWith('#')) continue;
+      if (!value || value.startsWith('mailto:')) continue;
       const link = new URL(value, url);
       if (link.origin !== origin) continue;
       assert.equal(link.pathname, canonicalPath(link.pathname), `${url}: redirected internal link ${value}`);
       assert.ok(!link.pathname.startsWith('/cdn-cgi/'), `${url}: Cloudflare email URL`);
       assert.ok(isPage(link.pathname) || fs.existsSync(path.join(root, link.pathname)), `${url}: missing ${value}`);
+      if (link.hash && isPage(link.pathname)) {
+        const match = expected.find(candidate => new URL(candidate).pathname === link.pathname);
+        const index = expected.indexOf(match);
+        const target = document(source(locales[Math.floor(index / pages.length)], pages[index % pages.length]));
+        assert.ok(walk(target).some(node => attr(node, 'id') === decodeURIComponent(link.hash.slice(1))), `${url}: missing anchor ${value}`);
+      }
     }
     if (!live && node.tagName === 'a' && attr(node, 'href')?.startsWith('mailto:')) {
       const siblings = node.parentNode.childNodes;
@@ -60,6 +72,15 @@ function check(doc, url, alias = false, live = false) {
     assert.equal(walk(find(doc, 'section', 'id', 'questions')).filter(node => node.tagName === 'h3').length, 5);
   }
   if (!alias) assert.ok(routes.has(new URL(url).pathname));
+  if (new URL(url).pathname.endsWith('/')) {
+    assert.equal(nodes.filter(node => node.tagName === 'details').length, 3);
+    assert.equal(nodes.filter(node => node.tagName === 'summary').length, 3);
+    for (const image of nodes.filter(node => node.tagName === 'img')) {
+      assert.ok(Number(attr(image, 'width')) > 0 && Number(attr(image, 'height')) > 0, `${url}: image dimensions`);
+    }
+    assert.equal(attr(find(doc, 'img', 'class', 'hero-art'), 'fetchpriority'), 'high');
+    assert.equal(attr(find(doc, 'img', 'loading', 'lazy'), 'decoding'), 'async');
+  }
 }
 
 for (const locale of [...locales, 'en-US']) for (const page of pages) check(document(source(locale, page)), origin + route(locale, page), locale === 'en-US');
