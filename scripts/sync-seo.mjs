@@ -1,10 +1,13 @@
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { XMLBuilder } from 'fast-xml-parser';
 import { root, origin, locales, pages, read, write, source, route, canonicalPath, document, walk, attr, setAttr, find, text, setText, escape, insert, serialize } from './site.mjs';
 import { renderHome, enhanceShared } from './home.mjs';
 
 const copy = JSON.parse(read('content/help.json'));
 const homeCopy = JSON.parse(read('content/home.json'));
+const versionedAsset = file => `/${file}?v=${createHash('sha256').update(read(file)).digest('hex').slice(0,12)}`;
+const navigationSource = versionedAsset('scripts/navigation.js');
 const today = new Date().toISOString().slice(0, 10);
 const paragraph = value => `<p>${escape(value)}</p>`;
 const section = (id, title, content) => `<section id="${id}"><h2>${escape(title)}</h2>${content}</section>\n`;
@@ -16,6 +19,12 @@ for (const locale of [...locales, 'en-US']) {
     const file = source(locale, page);
     const doc = document(file);
     const head = find(doc, 'head');
+    const styles = walk(head).filter(node => node.tagName === 'link' && attr(node, 'rel') === 'stylesheet');
+    const baseStyle = styles.find(node => attr(node, 'href').split('?')[0] === '/style/base.css');
+    setAttr(baseStyle, 'href', versionedAsset('style/base.css'));
+    const tokenStyle = styles.find(node => attr(node, 'href').split('?')[0] === '/style/tokens.css');
+    if (tokenStyle) setAttr(tokenStyle, 'href', versionedAsset('style/tokens.css'));
+    else insert(head, `<link rel="stylesheet" href="${versionedAsset('style/tokens.css')}">`, head.childNodes.indexOf(baseStyle));
     const url = origin + route(locale, page);
     const oldUrl = origin + '/' + file;
     for (const node of walk(doc)) {
@@ -59,7 +68,7 @@ for (const locale of [...locales, 'en-US']) {
     if (page === 'index.html') {
       renderHome(doc, locale, words, homeCopy[language]);
     }
-    enhanceShared(doc, locale, homeCopy[language]);
+    enhanceShared(doc, locale, homeCopy[language], navigationSource);
     const titleNode = find(head, 'title');
     setText(titleNode, text(titleNode).replaceAll('ScreensTogether', 'Screens Together'));
     for (const node of walk(head).filter(node => node.tagName === 'meta' && ['og:title', 'og:site_name'].includes(attr(node, 'property')))) setAttr(node, 'content', attr(node, 'content').replaceAll('ScreensTogether', 'Screens Together'));

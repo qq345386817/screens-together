@@ -1,5 +1,3 @@
-@import url("./tokens.css");
-
 * { box-sizing: border-box; }
 html { color-scheme: light; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 var(--font-sans); letter-spacing: 0; }

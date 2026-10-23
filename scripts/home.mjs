@@ -34,7 +34,7 @@ export function renderHome(doc, locale, words, home) {
   `, 1);
 }
 
-export function enhanceShared(doc, locale, home) {
+export function enhanceShared(doc, locale, home, navigationSource) {
   const header = find(doc, 'header');
   const brand = find(header, 'a', 'class', 'brand');
   for (const child of brand.childNodes.filter(node => node.nodeName === '#text')) child.value = 'Screens Together';
@@ -49,7 +49,9 @@ export function enhanceShared(doc, locale, home) {
   if (!find(body, 'a', 'class', 'skip-link')) insert(body, `<a class="skip-link" href="#main-content">${e(home.skip)}</a>`, 0);
   const panel = find(doc, 'section', 'class', 'article-panel');
   if (panel) { setAttr(panel, 'id', 'main-content'); setAttr(panel, 'tabindex', '-1'); }
-  if (!find(body, 'script', 'src', '/scripts/navigation.js')) insert(body, '<script src="/scripts/navigation.js" defer></script>');
+  const navigation = walk(body).find(node => node.tagName === 'script' && attr(node, 'src')?.split('?')[0] === '/scripts/navigation.js');
+  if (navigation) setAttr(navigation, 'src', navigationSource);
+  else insert(body, `<script src="${navigationSource}" defer></script>`);
   const theme = find(doc, 'meta', 'name', 'theme-color');
   if (theme) setAttr(theme, 'content', '#ffffff');
   for (const node of walk(find(doc, 'footer')).filter(node => node.nodeName === '#text' && node.value.includes('ScreensTogether'))) node.value = node.value.replaceAll('ScreensTogether', 'Screens Together');

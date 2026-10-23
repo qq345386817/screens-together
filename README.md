@@ -20,6 +20,7 @@ https://screens-together.luopeike.com
 - `content/home.json` and `scripts/home.mjs` generate the eight localized homepages: product overview, setup, actual macOS interface, platform roles, and native disclosure questions.
 - `style/tokens.css` delivers the shared light-theme palette; `style/base.css` owns responsive layouts and accessible controls. The design-system source and design canvas are in the App workspace at `Design/WebsiteSystem/` and `Design/WebsiteRefresh/`.
 - `scripts/navigation.js` only handles language selection. Core content, navigation, setup links, and disclosure questions do not depend on JavaScript rendering.
+- Generated pages version both stylesheets and the navigation script with content hashes. This prevents returning browsers from combining a new HTML release with cached old styling. Run `npm run sync` after changing these files.
 - `images/README.md` records which images are conceptual and which are actual app captures. Screenshots are localized, compressed, and lazy-loaded; the hero has eager priority and explicit dimensions.
 - `llms.txt` is optional agent navigation, not a Google ranking feature. It must stay consistent with the visible pages.
 - `_redirects` and `_headers` are Cloudflare Pages configuration files; upload them alongside the HTML files.

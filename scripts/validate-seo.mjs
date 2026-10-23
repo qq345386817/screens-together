@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { parse } from 'parse5';
 import { root, origin, locales, pages, read, source, route, canonicalPath, document, walk, attr, find, text } from './site.mjs';
@@ -24,7 +25,10 @@ function check(doc, url, alias = false, live = false) {
   assert.equal(nodes.filter(node => node.tagName === 'h1').length, 1, url);
   assert.ok(nodes.find(node => attr(node, 'id') === 'main-content'), `${url}: skip link target`);
   assert.equal(attr(find(doc, 'a', 'class', 'skip-link'), 'href'), '#main-content');
-  assert.ok(find(doc, 'script', 'src', '/scripts/navigation.js'));
+  for (const file of ['style/base.css','style/tokens.css','scripts/navigation.js']) {
+    const hash = createHash('sha256').update(read(file)).digest('hex').slice(0,12);
+    assert.ok(nodes.some(node => attr(node, file.endsWith('.js') ? 'src' : 'href') === `/${file}?v=${hash}`), `${url}: stale asset version ${file}`);
+  }
   assert.equal(attr(find(doc, 'select'), 'onchange'), undefined);
   const ids = nodes.map(node => attr(node, 'id')).filter(Boolean);
   assert.equal(ids.length, new Set(ids).size, `${url}: duplicate IDs`);
