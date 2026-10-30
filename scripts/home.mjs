@@ -1,7 +1,8 @@
-import { find, attr, insert, route, escape, setAttr, walk } from './site.mjs';
+import { find, attr, insert, route, escape, setAttr, walk, read } from './site.mjs';
 
 const e = escape;
 const store = 'https://apps.apple.com/app/id6673916351';
+const captures = JSON.parse(read('images/mac-screenshots.json'));
 const action = label => `<a class="button primary" href="${store}"><img class="store-icon" src="/images/app-store-icon.svg" width="22" height="22" alt="">${e(label)}</a>`;
 
 export function renderHome(doc, locale, words, home) {
@@ -11,6 +12,7 @@ export function renderHome(doc, locale, words, home) {
   const lead = home.intro;
   const help = route(locale, 'help.html');
   const imageLocale = locale === 'en-US' ? 'en' : locale;
+  const capture = captures[imageLocale];
   setAttr(main, 'class', 'page landing');
   main.childNodes = [header, footer];
   insert(main, `
@@ -26,7 +28,7 @@ export function renderHome(doc, locale, words, home) {
       <a class="text-link" href="${help}#setup">${e(words.setupTitle)} <span aria-hidden="true">→</span></a>
     </section>
     <section class="section mac-story" aria-labelledby="mac-title"><div class="section-heading"><h2 id="mac-title">${e(home.macHeading)}</h2><p>${e(home.macIntro)}</p><a class="text-link" href="${help}#mac">${e(home.roleLinks[1])} <span aria-hidden="true">→</span></a></div>
-      <figure class="product-shot"><img src="/images/mac-${imageLocale}.jpg" alt="${e(home.screenshot)}" width="1760" height="1320" loading="lazy" decoding="async"><figcaption>${e(home.screenshot)}</figcaption></figure>
+      <figure class="product-shot"><img src="/${capture.file}?v=${capture.sha256.slice(0,12)}" alt="${e(home.screenshot)}" width="${capture.width}" height="${capture.height}" loading="lazy" decoding="async"><figcaption>${e(home.screenshot)}</figcaption></figure>
     </section>
     <section class="section" id="platforms" aria-labelledby="platform-title"><h2 id="platform-title">${e(words.platformTitle)}</h2><div class="platforms">${['iPhone / iPad', 'Mac', 'Apple TV'].map((name, index) => `<article><h3>${name}</h3><p>${e(home.roles[index])}</p><a class="text-link" href="${help}#${['setup','mac','apple-tv'][index]}">${e(home.roleLinks[index])} <span aria-hidden="true">→</span></a></article>`).join('')}</div></section>
     <section class="section home-faq" id="questions" aria-labelledby="faq-title"><h2 id="faq-title">${e(home.faqHeading)}</h2><div class="questions">${[words.faq[1], words.faq[0], words.faq[4]].map(([question, answer]) => `<details><summary>${e(question)}</summary><p>${e(answer)}</p></details>`).join('')}</div><a class="text-link" href="${help}#questions">${e(words.faqTitle)} <span aria-hidden="true">→</span></a></section>

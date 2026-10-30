@@ -1,4 +1,4 @@
-# ScreensTogether
+# Screens Together
 
 > A local multi-screen display app for scrolling text and user-selected video on iPhone, iPad, native Mac, and Apple TV.
 
@@ -6,6 +6,8 @@
 
 - iPhone/iPad can host or display; the host participates as a screen.
 - A native Mac controller and its joined Display Node windows have separate roles; the controller is not a display tile.
+- Prepare content and layout before creating an iPhone/iPad room. During playback, tap the display to reveal navigation and return to Host Room for pause or closure.
+- Mac playback controls are in the controller window toolbar.
 - Apple TV is a receiver and needs a nearby host.
 - Local rooms need no account or cloud service. Allow local network discovery.
 - This is selected-content tiling, not AirPlay, whole-desktop mirroring, or protected streaming playback.

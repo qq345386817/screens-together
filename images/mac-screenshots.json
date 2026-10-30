@@ -1,0 +1,74 @@
+{
+  "de-DE" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-de-DE.jpg",
+    "height" : 804,
+    "sha256" : "5bdcb9a0dbe87efaa1a1d1953b06ade18d9311534f738897bf81b18629114d2e",
+    "source" : "macos_de_DE_host.png",
+    "sourceSHA256" : "a8847eb44e153ae0cb6160de3dda0fee1a248a4e5eba9df3795fb1baf3c30fd2",
+    "width" : 1052
+  },
+  "en" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-en.jpg",
+    "height" : 804,
+    "sha256" : "3e78f332cf09fc2fe62d0abef7563ee66a84b9fbf526cc572ee345b4f84e693a",
+    "source" : "macos_en_US_host.png",
+    "sourceSHA256" : "259519afad5a5d538edc1b86e7b8e58e7631c9e7e88fcb0bfccb4efe30c05894",
+    "width" : 1052
+  },
+  "es-ES" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-es-ES.jpg",
+    "height" : 804,
+    "sha256" : "da5e9d745a670c8e17fcca6cdb00ec8b0ca356f32013b8c96d564f08ccb47d60",
+    "source" : "macos_es_ES_host.png",
+    "sourceSHA256" : "4c291bdac19241eff448d5d945061d49e10ce8894b937058e7394352f4290211",
+    "width" : 1052
+  },
+  "fr-FR" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-fr-FR.jpg",
+    "height" : 804,
+    "sha256" : "a4dca4579f9a541cf7efe6402990415d9dd5bf3bfd66c438f5ee4db199229421",
+    "source" : "macos_fr_FR_host.png",
+    "sourceSHA256" : "bd3d8d84986da88694a4c84450f0ee23a17a89c70f6fb80af766e0573c0ea362",
+    "width" : 1052
+  },
+  "ja" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-ja.jpg",
+    "height" : 804,
+    "sha256" : "85203aace8870e45747621d832d9543f21e0ba8a619e7cc978aff38066690522",
+    "source" : "macos_ja_host.png",
+    "sourceSHA256" : "398bdc4a99dfbd6221a3c6206c092f90bd1f2ce6d2132551ae5344399d909175",
+    "width" : 1052
+  },
+  "ko" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-ko.jpg",
+    "height" : 804,
+    "sha256" : "3f5e73d52fde262bcb0aedd45531b37ac2a5ab25800e36c5d3b253bc62f4e7e1",
+    "source" : "macos_ko_host.png",
+    "sourceSHA256" : "3c7027bb66049f2f93ec0a3507e0eccf7329243d122e37252c58b1339967b855",
+    "width" : 1052
+  },
+  "zh-Hans" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-zh-Hans.jpg",
+    "height" : 804,
+    "sha256" : "61bf07324e2448531178c46599d7c9775160f80fb58d830f691e7f5e7636ee99",
+    "source" : "macos_zh_Hans_host.png",
+    "sourceSHA256" : "c1adf358df918fc9fe73730f17d44efc2c1cc36aea58d23f08863556af1cd87b",
+    "width" : 1052
+  },
+  "zh-Hant" : {
+    "capturedOn" : "2026-10-25",
+    "file" : "images/mac-zh-Hant.jpg",
+    "height" : 804,
+    "sha256" : "6e223299f6cd0c65b347633f149bb0b940d1d589d38a9add1a64478d2b7f48dc",
+    "source" : "macos_zh_Hant_host.png",
+    "sourceSHA256" : "d2592d32a6314eb37f9d672e433a7783436cb6297592b90024bc64f417d58d34",
+    "width" : 1052
+  }
+}

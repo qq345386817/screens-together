@@ -54,7 +54,7 @@ h3 { font-size: 24px; font-weight: 650; }
 .section-heading p { margin-top: 16px; }
 .section-heading .text-link { margin-top: 12px; }
 .product-shot { max-width: 900px; margin-inline: auto; }
-.product-shot img { width: 100%; height: auto; aspect-ratio: 4/3; border-radius: 8px; }
+.product-shot img { display: block; width: 100%; height: auto; border-radius: 8px; }
 figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; text-align: center; }
 .platforms { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 40px; margin-top: 36px; }
 .platforms article { min-width: 0; border-top: 2px solid var(--brand); padding-top: 24px; }

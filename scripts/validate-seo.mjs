@@ -13,6 +13,16 @@ const expected = locales.flatMap(locale => pages.map(page => origin + route(loca
 assert.equal(urls.length, 32);
 assert.deepEqual([...urls.map(item => item.loc)].sort(), [...expected].sort());
 const routes = new Set(expected.map(url => new URL(url).pathname));
+const captures = JSON.parse(read('images/mac-screenshots.json'));
+assert.deepEqual(Object.keys(captures).sort(), [...locales].sort());
+for (const [locale, capture] of Object.entries(captures)) {
+  assert.equal(capture.file, `images/mac-${locale}.jpg`);
+  assert.match(capture.capturedOn, /^\d{4}-\d{2}-\d{2}$/);
+  assert.ok(capture.capturedOn <= new Date().toISOString().slice(0, 10));
+  assert.match(capture.sourceSHA256, /^[a-f0-9]{64}$/);
+  assert.equal(createHash('sha256').update(fs.readFileSync(path.join(root, capture.file))).digest('hex'), capture.sha256);
+  assert.ok(capture.width > 700 && capture.height > 500);
+}
 const isPage = pathname => routes.has(pathname);
 function check(doc, url, alias = false, live = false) {
   const nodes = walk(doc);
@@ -77,6 +87,12 @@ function check(doc, url, alias = false, live = false) {
   }
   if (!alias) assert.ok(routes.has(new URL(url).pathname));
   if (new URL(url).pathname.endsWith('/')) {
+    const locale = new URL(url).pathname.split('/').filter(Boolean)[0] || 'en';
+    const capture = captures[locale];
+    const image = walk(find(doc, 'figure', 'class', 'product-shot')).find(node => node.tagName === 'img');
+    assert.equal(attr(image, 'src'), `/${capture.file}?v=${capture.sha256.slice(0,12)}`);
+    assert.equal(Number(attr(image, 'width')), capture.width);
+    assert.equal(Number(attr(image, 'height')), capture.height);
     assert.equal(nodes.filter(node => node.tagName === 'details').length, 3);
     assert.equal(nodes.filter(node => node.tagName === 'summary').length, 3);
     for (const image of nodes.filter(node => node.tagName === 'img')) {
@@ -120,6 +136,12 @@ if (process.argv.includes('--live')) {
     const response = await fetch(origin + from, { redirect: 'manual', signal: controller() });
     assert.ok([301, 308].includes(response.status), `Missing redirect ${from}`);
     assert.equal(new URL(response.headers.get('location'), origin).pathname, to);
+  }
+  for (const capture of Object.values(captures)) {
+    const response = await fetch(`${origin}/${capture.file}?v=${capture.sha256.slice(0,12)}`, { signal: controller() });
+    assert.equal(response.status, 200, capture.file);
+    assert.ok(response.headers.get('content-type').includes('image/jpeg'));
+    assert.equal(createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex'), capture.sha256, `Stale deployed capture: ${capture.file}`);
   }
   const liveMap = await fetch(origin + '/sitemap.xml', { signal: controller() });
   assert.deepEqual(new XMLParser().parse(await liveMap.text()).urlset.url.map(item => item.loc).sort(), [...expected].sort());
