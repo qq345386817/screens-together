@@ -2,3 +2,16 @@
 node_modules/
 .wrangler/
 .cache/
+
+# Local credentials, environment overrides, and verification output
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.pfx
+*.pem
+*.key
+*.log
+test-results/
+playwright-report/

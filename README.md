@@ -22,6 +22,7 @@ https://screens-together.luopeike.com
 - `scripts/navigation.js` only handles language selection. Core content, navigation, setup links, and disclosure questions do not depend on JavaScript rendering.
 - Generated pages version both stylesheets and the navigation script with content hashes. This prevents returning browsers from combining a new HTML release with cached old styling. Run `npm run sync` after changing these files.
 - `images/README.md` records which images are conceptual and which are actual app captures. Screenshots are localized, compressed, and lazy-loaded; the hero has eager priority and explicit dimensions.
+- `images/mac-screenshots.json` records the verified native capture date, original/output checksums and actual image dimensions. Run `swift scripts/import-mac-screenshots.swift SOURCE_DIRECTORY YYYY-MM-DD` on macOS to replace all eight controller screenshots before regenerating pages. Image URLs are content-versioned to avoid showing an older interface from cache.
 - `llms.txt` is optional agent navigation, not a Google ranking feature. It must stay consistent with the visible pages.
 - `_redirects` and `_headers` are Cloudflare Pages configuration files; upload them alongside the HTML files.
 
