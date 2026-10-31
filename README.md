@@ -45,4 +45,6 @@ http://127.0.0.1:4173/zh-Hans/
 
 After deployment, run `npm run test:live`. It verifies all 32 canonical pages return HTTP 200 without redirects, legacy English redirects, sitemap entries, image/link paths, email protection guards, `llms.txt`, and a true 404 for unknown URLs. Check deployment results before submitting the sitemap or requesting indexing in Google Search Console.
 
+Live checks also compare all eight screenshot checksums and sitemap modification dates, reject unintended noindex metadata, and parse Cloudflare's combined robots rules for search crawlers. Network transfers have a bounded retry; content failures are not retried or ignored. When a local HTTP proxy is required, a supporting Node runtime can use `NODE_USE_ENV_PROXY=1 npm run test:live` (verified with Node 26) without changing system network settings.
+
 Do not reset `lastmod` dates just to request recrawling, add fabricated reviews/ratings, or promise frame-perfect synchronization. See `SEO_NOTES.md` for the GSC findings and indexing limitations.
